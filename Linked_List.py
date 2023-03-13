@@ -53,6 +53,20 @@ class linked_list:
             if current_node_index==index: return current_node.data
             current_node_index+=1
 
+    def modify(self,data,index):
+        if index>=self.length():
+            #Checks if the value being indexed is withint the linked list
+            print("Error:Out of field; Indexing number is outside of linked list.")
+            return None
+        current_node_index = 0
+        current_node = self.head
+        while True:
+            current_node = current_node.next
+            if current_node_index==index: 
+                current_node.data = data
+                return current_node.data
+            current_node_index+=1
+
     def erase(self,index):
         #Removes a single element from within the linked list
         if index>=self.length():
@@ -77,4 +91,6 @@ for x in range(10):
 link_list.display()
 print ("Element at 2nd index: %d" %link_list.get(2))
 link_list.erase(2)
+link_list.display()
+link_list.modify(5,1)
 link_list.display()
